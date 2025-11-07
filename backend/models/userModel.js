@@ -27,6 +27,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    language: {
+        type: String,
+        required: true,
+    },
     password: {
         type: String,
         required: true,
@@ -34,9 +38,34 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         enum: ['Doctor', 'Patient'],
+        required: true,
     },
-}, { timestamps: true });  //this timestamps option adds createdAt and updatedAt fields
+    // --- Doctor-Specific Fields ---
+    degree: {
+        type: String,
+    },
+    registrationNumber: {
+        type: String,
+        unique: true,
+        sparse: true, // Allows multiple null/missing values (for patients)
+    }
+}, { timestamps: true });
+
+// ✅ Conditional Validation (Verification) Logic
+userSchema.pre('save', function(next) {
+    // Check if the role is 'Doctor'
+    if (this.role === 'Doctor') {
+        // 1. Verify 'degree' is present
+        if (!this.degree || this.degree.trim() === '') {
+            return next(new Error('Doctors must have a degree specified.'));
+        }
+        // 2. Verify 'registrationNumber' is present
+        if (!this.registrationNumber || this.registrationNumber.trim() === '') {
+            return next(new Error('Doctors must have a medical registration number.'));
+        }
+    }
+    // If validation passes (or user is Patient), proceed to save
+    next();
+});
 
 module.exports = mongoose.model('User', userSchema);
-// This code defines a Mongoose schema for a User model with fields for name, email, password, and role.
-

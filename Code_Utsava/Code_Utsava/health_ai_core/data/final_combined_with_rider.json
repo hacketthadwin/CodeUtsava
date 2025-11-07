@@ -1,0 +1,43 @@
+{
+  "patient_id": "PR_2d9a6106",
+  "patient_name": "Adarsh Mukund Jha",
+  "age": 21,
+  "sex": "Male",
+  "report_source": {
+    "file_name": null,
+    "source_type": [
+      "form"
+    ],
+    "extraction_timestamp": "2025-11-07T06:25:55.736714+00:00"
+  },
+  "vitals": {
+    "bp_systolic": 150,
+    "bp_diastolic": 90,
+    "pulse_bpm": 6,
+    "temperature_c": null,
+    "spo2_percent": null
+  },
+  "hypertension_grade": "stage_2",
+  "symptoms": [
+    "Hypertension "
+  ],
+  "diagnoses": [],
+  "past_medical_history": [
+    "Hypertension"
+  ],
+  "current_medications": [
+    "VISLOVA 1"
+  ],
+  "lab_results": {},
+  "parser_metadata": {
+    "parser_version": "v4.1.1",
+    "ocr_engine": "tesseract-5.4.0",
+    "language_model": "regex",
+    "accuracy_confidence": 0.9
+  },
+  "medicinal_recommendations": {
+    "Final Group Adv": "CCB + ARB or ACEI + Diuretic + MRA",
+    "Output": "Amlodipine + Telmisartan + Spironolactone",
+    "Adverse Effects": "Monitor for hyperkalemia and hypotension"
+  }
+}

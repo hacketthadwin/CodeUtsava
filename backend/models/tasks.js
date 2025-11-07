@@ -16,8 +16,8 @@ const tasksSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId, // This is the correct Mongoose type for MongoDB ObjectIds
         ref: 'User', // IMPORTANT: Replace 'User' with the actual name of your User model if it's different.
-                      // This creates a reference to your User collection.
-        required: true, // A task must always belong to a user
+
+        required: true, 
     },
 }, { timestamps: true }); // Adding timestamps is generally good practice for createdAt and updatedAt
 

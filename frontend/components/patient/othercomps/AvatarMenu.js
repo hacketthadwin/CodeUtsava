@@ -3,6 +3,14 @@ import { View, Image, Text, TouchableOpacity, Pressable, Platform, StyleSheet } 
 import * as Haptics from 'expo-haptics';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming, Easing } from 'react-native-reanimated';
+// 1. Import LottieView
+import LottieView from 'lottie-react-native'; 
+
+// 2. Import the Lottie animation file
+// Path is relative from components/patient/othercomps/AvatarMenu.js to assets/animations/Profile.json
+import ProfileLottie from '../../../assets/animations/Profile.json'; 
+
+// Note: The Image import is kept but the component is replaced with LottieView in the return block
 
 const AvatarMenu = ({ avatarUri, onProfile, onSettings, onLogout }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,12 +61,16 @@ const AvatarMenu = ({ avatarUri, onProfile, onSettings, onLogout }) => {
       <TouchableOpacity
         activeOpacity={0.7}
         onPress={handleToggle}
-        className="w-12 h-12 rounded-full overflow-hidden border border-gray-400"
+        // Removed border-gray-400 and overflow-hidden for Lottie to ensure it renders correctly
+        className="w-12 h-12 rounded-full" 
       >
-        <Image
-          source={ avatarUri }
-          className="w-full h-full"
-          resizeMode="cover"
+        {/* 3. Replaced Image with LottieView */}
+        <LottieView
+          source={ProfileLottie} // Use the imported JSON file
+          autoPlay={true}      // Start playing when the component mounts
+          loop={true}          // Loop the animation continuously
+          style={{ width: '100%', height: '100%', backgroundColor: 'transparent' }}
+          // Optional: Add a subtle border or styling to the Lottie container if needed for visual framing
         />
       </TouchableOpacity>
 
@@ -74,26 +86,26 @@ const AvatarMenu = ({ avatarUri, onProfile, onSettings, onLogout }) => {
             className="mt-2 bg-white rounded-lg shadow-lg border border-gray-200 w-44"
             style={animatedMenuStyle}
           >
-          <TouchableOpacity
-            onPress={() => handleSelect(onProfile)}
-            className="px-4 py-3"
-          >
-            <Text className="text-gray-800">Profile</Text>
-          </TouchableOpacity>
-          <View className="h-px bg-gray-200" />
-          <TouchableOpacity
-            onPress={() => handleSelect(onSettings)}
-            className="px-4 py-3"
-          >
-            <Text className="text-gray-800">Settings</Text>
-          </TouchableOpacity>
-          <View className="h-px bg-gray-200" />
-          <TouchableOpacity
-            onPress={() => handleSelect(onLogout)}
-            className="px-4 py-3"
-          >
-            <Text className="text-red-600">Logout</Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => handleSelect(onProfile)}
+              className="px-4 py-3"
+            >
+              <Text className="text-gray-800">Profile</Text>
+            </TouchableOpacity>
+            <View className="h-px bg-gray-200" />
+            <TouchableOpacity
+              onPress={() => handleSelect(onSettings)}
+              className="px-4 py-3"
+            >
+              <Text className="text-gray-800">Settings</Text>
+            </TouchableOpacity>
+            <View className="h-px bg-gray-200" />
+            <TouchableOpacity
+              onPress={() => handleSelect(onLogout)}
+              className="px-4 py-3"
+            >
+              <Text className="text-red-600">Logout</Text>
+            </TouchableOpacity>
           </Animated.View>
         </>
       )}
@@ -102,5 +114,3 @@ const AvatarMenu = ({ avatarUri, onProfile, onSettings, onLogout }) => {
 };
 
 export default AvatarMenu;
-
-

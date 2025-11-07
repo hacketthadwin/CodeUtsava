@@ -1,0 +1,70 @@
+{
+  "patient_id": "PR_2d9a6106",
+  "patient_name": "Adarsh Mukund Jha",
+  "age": 21,
+  "sex": "Male",
+  "report_source": {
+    "file_name": null,
+    "source_type": [
+      "form"
+    ],
+    "extraction_timestamp": "2025-11-07T06:25:55.736714+00:00"
+  },
+  "vitals": {
+    "bp_systolic": 150,
+    "bp_diastolic": 90,
+    "pulse_bpm": 6,
+    "temperature_c": null,
+    "spo2_percent": null
+  },
+  "hypertension_grade": "stage_2",
+  "symptoms": [
+    "Hypertension "
+  ],
+  "diagnoses": [],
+  "past_medical_history": [
+    "Hypertension"
+  ],
+  "current_medications": [
+    "VISLOVA 1"
+  ],
+  "lab_results": {},
+  "parser_metadata": {
+    "parser_version": "v4.1.1",
+    "ocr_engine": "tesseract-5.4.0",
+    "language_model": "regex",
+    "accuracy_confidence": 0.9
+  },
+  "medicinal_recommendations": {
+    "Final Group Adv": "CCB + ARB or ACEI + Diuretic + MRA",
+    "Output": "Amlodipine + Telmisartan + Spironolactone",
+    "Adverse Effects": "Monitor for hyperkalemia and hypotension"
+  },
+  "Overall Recommendations": {
+    "exercise_plan": [
+      "Engage in regular moderate-intensity aerobic exercise like brisk walking, jogging, or cycling for at least 30 minutes most days of the week. Start slowly and gradually increase the duration and intensity as you get fitter.",
+      "Incorporate strength training exercises at least twice a week. Focus on major muscle groups like legs, arms, back, and chest. Use light weights or resistance bands initially.",
+      "Practice relaxation techniques like yoga or tai chi to help manage stress and lower blood pressure."
+    ],
+    "daily_routine": [
+      "Maintain a consistent sleep schedule by going to bed and waking up at the same time each day.",
+      "Eat a balanced diet rich in fruits, vegetables, whole grains, and lean protein. Limit your intake of processed foods, saturated and trans fats, and sodium.",
+      "Stay hydrated by drinking plenty of water throughout the day. Aim for at least 8 glasses.",
+      "Practice mindful breathing exercises for a few minutes each day to help reduce stress and promote relaxation."
+    ],
+    "general_health_tips": [
+      "Monitor your blood pressure regularly at home and keep a record to share with your doctor.",
+      "Limit your alcohol consumption.",
+      "Quit smoking if you are a smoker.",
+      "Manage stress through relaxation techniques, hobbies, or spending time with loved ones.",
+      "Schedule regular check-ups with your doctor to monitor your health and adjust your treatment plan as needed."
+    ],
+    "alert": {
+      "status": "alert",
+      "bp_systolic": 150,
+      "bp_diastolic": 90,
+      "hypertension_grade": "Stage 2 Hypertension",
+      "message": "High BP detected — combination therapy and close monitoring recommended."
+    }
+  }
+}
